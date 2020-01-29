@@ -1,3 +1,4 @@
+import './SearchBar.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import { newQuery, newImages } from '../actions'; 
@@ -12,12 +13,19 @@ class SearchBar extends React.Component {
     }
 
     render() {
+        const iconClass = 'pd';
+        const inputClass = 'input-field';
+        const containerClass = 'field container';
+        const outerContainerClass = 'outer-container';
         return (
-            <div className='ui segment'>
-                <form onSubmit={this.onFormSumbit} className='ui form'>
-                    <div className='field'>
-                        <label>Image Search</label>
+            <div className={outerContainerClass}>
+                <form onSubmit={this.onFormSumbit} className=''>
+                    <div className={containerClass}>
+                        <label className={ iconClass }>
+                            <i className="fas fa-search"></i>
+                        </label>
                         <input 
+                            className={ inputClass }
                             type='text'
                             onChange={(e) => this.setState({ term: e.target.value })}
                         />
